@@ -9,6 +9,9 @@
 </form>
 
 <!-- list all urls that u had just created -->
+<% if @error_message %>
+	<%= @new_url.errors.messages %>
+	<% end %>
 
 <% @urls.each do |url| %>
 	<p>
@@ -17,6 +20,8 @@
 			<a href="<%= url.short_url %>">
 				<%= url.short_url %>
 			</a>
+			<%="#{url.click_count}"%>
 		</span>
 	</p>
 <% end %>
+
